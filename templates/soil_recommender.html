@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Soil Predictor</title>
+    <!-- Add Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">Soil Type Predictor</h1>
+        <form method="POST" class="mt-4">
+            <div class="form-group">
+                <label for="soil_type">Select Soil Type:</label>
+                <select name="soil_type" id="soil_type" class="form-control">
+                    {% for soil_type in soil_types %}
+                        <option value="{{ soil_type }}">{{ soil_type }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Predict</button>
+        </form>
+        {% if prediction %}
+            <div class="mt-4">
+                <h2>Predicted Characteristics for {{ selected_soil }}</h2>
+                <ul class="list-group">
+                    <li class="list-group-item"><strong>Nitrogen (N):</strong> {{ prediction["Nitrogen (N)"] }}%</li>
+                    <li class="list-group-item"><strong>Phosphorus (P):</strong> {{ prediction["Phosphorus (P)"] }}%</li>
+                    <li class="list-group-item"><strong>Potassium (K):</strong> {{ prediction["Potassium (K)"] }}%</li>
+                    <li class="list-group-item"><strong>pH:</strong> {{ prediction["pH"] }}</li>
+                </ul>
+            </div>
+        {% endif %}
+    </div>
+    <!-- Add Bootstrap JS and jQuery (if needed) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fertilizer Recommender</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body style="background-image: url('static/images/bgf.jpg'); background-repeat: no-repeat; background-size: cover;">
+    <h1>Fertilizer Recommender</h1>
+    <form method="POST">
+        <label for="nitrogen">Nitrogen Content (in %):</label>
+        <input type="number" step="0.01" name="nitrogen" id="nitrogen" placeholder="Enter nitrogen content" required>
+        
+        <label for="potassium">Potassium Content (in %):</label>
+        <input type="number" step="0.01" name="potassium" id="potassium" placeholder="Enter potassium content" required>
+        
+        <label for="phosphorous">Phosphorous Content (in %):</label>
+        <input type="number" step="0.01" name="phosphorous" id="phosphorous" placeholder="Enter phosphorous content" required>
+        
+        <label for="crop">Crop:</label>
+        <input type="text" name="crop" id="crop" placeholder="Enter the crop you want to grow" required>
+        
+        <button type="submit">Get Fertilizer Recommendation</button>
+    </form>
+    
+    
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Information</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body style="background-image: url('static/images/bgi.jpg'); background-repeat: no-repeat; background-size: cover;">
+    <div class="container mt-5">
+        <h1>Crop Information</h1>
+        <form method="POST">
+            <div class="form-group">
+                <label for="crop">Select a Crop:</label>
+                <select class="form-control" id="crop" name="crop">
+                    {% for crop in crops %}
+                        <option value="{{ crop }}">{{ crop }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        {% if crop %}
+            <h2>Crop Details</h2>
+            <ul class="list-group">
+                <li class="list-group-item"><strong>Soil Preparation:</strong> {{ crop['Soil Preparation'] }}</li>
+                <li class="list-group-item"><strong>Planting :</strong> {{ crop['Planting'] }}</li>
+                <li class="list-group-item"><strong>Irrigation :</strong> {{ crop['Irrigation'] }}</li>
+                <li class="list-group-item"><strong>Harvesting :</strong> {{ crop['Harvesting'] }}</li>
+            </ul>
+        {% endif %}
+
+        {% if additional %}
+            <h2>Additional Details</h2>
+            <ul class="list-group">
+                <li class="list-group-item"><strong>Soil Type :</strong> {{ additional['Soil Type'] }}</li>
+                <li class="list-group-item"><strong>Planting Season :</strong> {{ additional['Planting Season'] }}</li>
+                <li class="list-group-item"><strong>Recommended Acreage :</strong> {{ additional['Recommended Acreage'] }}</li>
+            </ul>
+        {% endif %}
+    </div>
+</body>
+</html>
